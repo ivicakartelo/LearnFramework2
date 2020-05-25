@@ -173,8 +173,8 @@ The object $post calls its method read():
 $post->read()
 ```
 The path of Class Post is model/menu.php where PHP script of function read stored:
-```
-function read(){
+
+```function read(){
     
         //query select all posts desc
         $query = "SELECT menu_id, name, content, published
@@ -188,44 +188,35 @@ function read(){
         $stmt->execute();
     
         return $stmt;
-    }
-    ```
+    }```
     
 The function return data from the database, from the table menu to select_control.php. 
 By the help of loop While and function fetch here is the array:
 
-```
-while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+```while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         extract($row);
         $post_item=array(
             "menu_id" => $menu_id,
             "name" => $name,
             "content" => $content,
             "published" => $published
-        );
-	```
+        );```
 	
 	The array is being encoding to JSON:
 	
-	```
-echo json_encode($posts_arr["menu"]);
-```
+	```echo json_encode($posts_arr["menu"]);```
 
 That JSON go to JQuery Ajax on index.php. Loop For scripts HTML table tag with rows of table menu 
 
-```
-for(var user in data){
+```for(var user in data){
                 response += "<tr>"+
                 "<td>"+data[user].name+"</td>"+
                 "<td>"+data[user].published+"</td>"+
-                "<td><div class=''>"+data[user].content+"</div></td>"
-	```
+                "<td><div class=''>"+data[user].content+"</div></td>"```
 
 and embeds it in HTML elements named hashpost:
 
-```
-$(response).appendTo($("hashpost"));
-```
+```$(response).appendTo($("hashpost"));```
 
 That embedded HTML is like the patch in the static template.php. All pages are the patches.
 
