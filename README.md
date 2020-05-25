@@ -75,6 +75,7 @@ Folder 'admin' contains CRUD scripting for table 'menu' organize in subfolders '
 
 Home Page index.php
 The PHP script on the beginning is for session control:
+```
 <?php
 session_start();
 if (!empty($_SESSION["username"])) {  
@@ -106,6 +107,7 @@ $content = '
     </div>';
         include ("template.php");
 ?>
+```
 HTML document 'template.php' on the end has this PHP script:
 <?php echo $content; ?>
 It's the patch in template.php.
