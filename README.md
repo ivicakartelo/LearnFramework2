@@ -200,7 +200,7 @@ By the help of loop While and function fetch here is the array:
             "name" => $name,
             "content" => $content,
             "published" => $published
-        );```
+        );
 	
 	The array is being encoding to JSON:
 	
