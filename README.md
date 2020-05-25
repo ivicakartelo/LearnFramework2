@@ -190,8 +190,10 @@ function read(){
         return $stmt;
     }
     ```
+    
 The function return data from the database, from the table menu to select_control.php. 
 By the help of loop While and function fetch here is the array:
+
 ```
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         extract($row);
@@ -204,10 +206,13 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 	```
 	
 	The array is being encoding to JSON:
+	
 	```
 echo json_encode($posts_arr["menu"]);
 ```
+
 That JSON go to JQuery Ajax on index.php. Loop For scripts HTML table tag with rows of table menu 
+
 ```
 for(var user in data){
                 response += "<tr>"+
@@ -217,9 +222,11 @@ for(var user in data){
 	```
 
 and embeds it in HTML elements named hashpost:
+
 ```
 $(response).appendTo($("hashpost"));
 ```
+
 That embedded HTML is like the patch in the static template.php. All pages are the patches.
 
 It is the architecture of the SPA. Every patch passes this path from VIEW to CONTROL to MODEL and by same path back.
