@@ -174,7 +174,9 @@ $post->read()
 ```
 The path of Class Post is model/menu.php where PHP script of function read stored:
 
-function read(){
+
+
+```function read(){
     
         //query select all posts desc
         $query = "SELECT menu_id, name, content, published
@@ -188,7 +190,7 @@ function read(){
         $stmt->execute();
     
         return $stmt;
-    }
+    }```
     
 The function return data from the database, from the table menu to select_control.php. 
 By the help of loop While and function fetch here is the array:
@@ -200,7 +202,7 @@ By the help of loop While and function fetch here is the array:
             "name" => $name,
             "content" => $content,
             "published" => $published
-        );
+        );```
 	
 	The array is being encoding to JSON:
 	
