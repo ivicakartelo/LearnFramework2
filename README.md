@@ -68,10 +68,10 @@ Because the browser contains the same page, but navigation means different peach
 # The architecture in details
 
 Folder 'admin' contains CRUD scripting for table 'menu' organize in subfolders 'control', 'model'. Home Page index.php is View part of data flow MVC.
-admin
-	control
-	model
-	index.php
+	admin
+		control
+		model
+		index.php
 
 Home Page index.php
 The PHP script on the beginning is for session control:
