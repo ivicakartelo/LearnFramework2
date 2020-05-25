@@ -82,8 +82,9 @@ if (!empty($_SESSION["username"])) {
 }
 else
 header("Location: login/login_form.php");
+```
 Follow the variable $contain with include ("template.php") on the PHP's end. That template.php is always in browser. Because of that it is Single Page in name SPA = Single Page Application:
-
+```
 $content = '
     <div class="grid12">
         <h1>All menu</h1>
@@ -109,16 +110,25 @@ $content = '
 ?>
 ```
 HTML document 'template.php' on the end has this PHP script:
+```
 <?php echo $content; ?>
+```
 It's the patch in template.php.
-Index.php continues with a JQuery Ajax scripts:
-'JQuery Ajax read all posts' beginns with:
+Index.php continues with a JQuery Ajax scripts.
+##'JQuery Ajax read all posts' beginns with:
+```
 $(document).ready(function()
+```
 It means that the script runs immediately after the HTML document has loaded.
+```
  function Delete(menu_id):
+ ```
 It means that the script have to be colled. It is by click on button see above in the HTML:
+```
 onClick=Delete('"+data[user].menu_id+"')
+```
 The first JQuery Ajax calls URL control/select_control.php:
+```
 <?php
 // include database and object files
 include_once '../../model/database.php';
@@ -157,9 +167,13 @@ else{
     echo json_encode(array());
 }
 ?>
+```
 The object $post calls its method read():
+```
 $post->read()
+```
 The path of Class Post is model/menu.php where PHP script of function read stored:
+```
 function read(){
     
         //query select all posts desc
@@ -175,8 +189,10 @@ function read(){
     
         return $stmt;
     }
+    ```
 The function return data from the database, from the table menu to select_control.php. 
 By the help of loop While and function fetch here is the array:
+```
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         extract($row);
         $post_item=array(
@@ -185,20 +201,25 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             "content" => $content,
             "published" => $published
         );
-The array is being encoding to JSON:
+	```
+	
+	The array is being encoding to JSON:
+	```
 echo json_encode($posts_arr["menu"]);
+```
 That JSON go to JQuery Ajax on index.php. Loop For scripts HTML table tag with rows of table menu 
-
+```
 for(var user in data){
                 response += "<tr>"+
                 "<td>"+data[user].name+"</td>"+
                 "<td>"+data[user].published+"</td>"+
                 "<td><div class=''>"+data[user].content+"</div></td>"
+	```
 
-and embeds it in HTML elements named post:
-
+and embeds it in HTML elements named hashpost:
+```
 $(response).appendTo($("hashpost"));
-
+```
 That embedded HTML is like the patch in the static template.php. All pages are the patches.
 
-It is the architecture of the SPA. Every patch passes this path.  
+It is the architecture of the SPA. Every patch passes this path from VIEW to CONTROL to MODEL and by same path back.
