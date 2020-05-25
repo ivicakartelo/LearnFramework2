@@ -199,4 +199,4 @@ $(response).appendTo($("hashpost"));
 
 That embedded HTML is like the patch in the static template.php. All pages are the patches.
 
-It is the architecture of the SPA.
+It is the architecture of the SPA. Every patch passes this path.  
